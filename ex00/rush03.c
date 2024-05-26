@@ -1,40 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush03.c                                           :+:      :+:    :+:   */
+/*   rush04.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbarrio <rbarrio@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 16:58:56 by rbarrio           #+#    #+#             */
-/*   Updated: 2024/05/25 16:59:03 by rbarrio          ###   ########.fr       */
+/*   Created: 2024/05/26 10:05:16 by rbarrio           #+#    #+#             */
+/*   Updated: 2024/05/26 10:05:18 by rbarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-void	aux(int a, int b, int x, int y)
-{
-	if ((b == 1 || b == y) && (a == 1 || a == x))
-	{
-		if (a == 1)
-		{
-			ft_putchar('A');
-		}
-		else
-		{
-			ft_putchar('C');
-		}
-	}
-	else
-	{
-		if (a != 1 && a != x && b != 1 && b != y)
-		{
-			ft_putchar(' ');
-		}
-		else
-		{
-			ft_putchar('B');
-		}
-	}
-}
 
 void	rush(int x, int y)
 {
@@ -47,7 +21,14 @@ void	rush(int x, int y)
 	{
 		while (a <= x)
 		{
-			aux(a, b, x, y);
+			if (a == 1 && (b == 1 || b == y))
+				ft_putchar('A');
+			else if (a == x && (b == 1 || b == y))
+				ft_putchar('C');
+			else if (a != 1 && a != x && b != 1 && b != y)
+				ft_putchar(' ');
+			else
+				ft_putchar('B');
 			a++;
 		}
 		ft_putchar('\n');
